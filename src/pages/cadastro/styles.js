@@ -23,9 +23,8 @@ const Styles = StyleSheet.create({
     height: 300,
     elevation: 100,
     margin: 40,
-
     opacity: 0.6,
-    borderRadius: 5,
+    borderRadius: 7,
   },
   input: {
     height: 35,
@@ -33,6 +32,7 @@ const Styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     color: 'black',
+    borderRadius: 7,
   },
   botao: {
     marginTop: 40,

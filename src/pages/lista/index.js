@@ -1,55 +1,70 @@
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  Image,
-} from 'react-native';
+import {View, FlatList, Text, Image, TouchableOpacity} from 'react-native';
 import Styles from './styles';
+import {useRoute} from '@react-navigation/native';
 import React from 'react';
-export default function Lista() {
-  const DATA = [
-    {
-      id: '1',
-      title: 'Name',
-      cpf: '1232',
-      imagem:
-        'https://img.myloview.com.br/posters/user-icon-vector-people-icon-profile-vector-icon-person-illustration-business-user-icon-users-group-symbol-male-user-symbol-700-223068883.jpg',
-    },
-    {
-      id: '2',
-      title: 'Idade',
-    },
-    {
-      id: '3',
-      title: 'Cpf',
-    },
-    {
-      id: '4',
-      title: 'Name',
-    },
-    {
-      id: '5',
-      title: 'Idade',
-    },
-    {
-      id: '6',
-      title: 'Cpf',
-    },
-  ];
+const DATA = [
+  {
+    id: '1',
+    imagem:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU',
+    title: 'Gabriela Silva',
+    idade: '17',
+    cpf: '222',
+  },
 
-  const Item = ({title, cpf, imagem}) => (
+  {
+    id: '2',
+    imagem:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU',
+    title: 'Maria Eduarda',
+    idade: '17',
+    cpf: '444',
+  },
+  {
+    id: '3',
+    imagem:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU',
+    title: 'Mariana Rove',
+    idade: '17',
+    cpf: '111',
+  },
+
+  {
+    id: '4',
+    imagem:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU',
+    title: 'João Pedro',
+    idade: '17',
+    cpf: '333',
+  },
+];
+
+export default function Lista() {
+  const route = useRoute();
+
+  DATA.push({
+    id: Math.random(0, 100),
+    imagem:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU',
+    title: 'João Pedro',
+    title: route.params.title,
+    idade: route.params.idade,
+    cpf: route.params.cpf,
+  });
+
+  const Item = ({data}) => (
     <View style={Styles.item}>
-      <Text style={Styles.title}>{title}</Text>
-      <Text style={Styles.title}>{cpf}</Text>
-      <Image source={{uri: imagem}} style={Styles.img} />
+      <Image source={{uri: data.imagem}} style={Styles.img} />
+      <View style={Styles.texto}>
+        <Text style={Styles.title}>Nome:{data.title}</Text>
+        <Text style={Styles.title}>Idade:{data.idade}</Text>
+        <Text style={Styles.title}>Cpf:{data.cpf}</Text>
+      </View>
     </View>
   );
 
-  const renderItem = ({item}) => (
-    <Item title={item.title} cpf={item.cpf} imagem={item.imagem} />
-  );
+  const renderItem = ({item}) => <Item data={item} />;
+  console.log(route.params);
 
   return (
     <View style={Styles.container}>
@@ -59,6 +74,10 @@ export default function Lista() {
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
+
+      <TouchableOpacity style={Styles.botao}>
+        <Text style={Styles.texto}>Deletar</Text>
+      </TouchableOpacity>
     </View>
   );
 }

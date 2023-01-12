@@ -13,6 +13,13 @@ import React, {useState} from 'react';
 export default function AppCadastro() {
   const navigation = useNavigation();
 
+  const AppCadastro = () => {
+    navigation.navigate('Lista', {
+      title: nome,
+      idade: idade,
+      cpf: cpf,
+    });
+  };
   const [nome, setNome] = useState(0);
   const [idade, setIdade] = useState(0);
   const [cpf, setCpf] = useState(0);
@@ -26,6 +33,7 @@ export default function AppCadastro() {
         <SafeAreaView style={Styles.area}>
           <View>
             <Text style={Styles.textcard}>Nome</Text>
+
             <TextInput
               value={nome}
               onChangeText={tex => {
@@ -60,9 +68,7 @@ export default function AppCadastro() {
         </SafeAreaView>
 
         <View>
-          <TouchableOpacity
-            onPress={() => Navegar(navigation)}
-            style={Styles.botao}>
+          <TouchableOpacity onPress={() => AppCadastro()} style={Styles.botao}>
             <Text style={Styles.texto}>Cadastrar</Text>
           </TouchableOpacity>
         </View>
