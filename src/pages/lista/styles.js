@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 const Styles = StyleSheet.create({
   container: {
-    backgroundColor: '#8FBC8F',
+    backgroundColor: '#bf6363',
     flex: 1,
   },
   item: {
@@ -25,16 +25,20 @@ const Styles = StyleSheet.create({
     fontSize: 20,
     color: 'white',
     fontWeight: '500',
-    textAlign: 'center',
+    marginLeft: 10,
   },
   botao: {
-    backgroundColor: '#A52A2A',
+    backgroundColor: '#7a0505',
     alignSelf: 'flex-end',
     borderRadius: 10,
-    width: 100,
-    alignItems: 'center',
+    width: 115,
     marginRight: 18,
     bottom: 5,
+    height: 30,
+  },
+  icon: {
+    marginLeft: 83,
+    bottom: 23,
   },
 });
 export default Styles;

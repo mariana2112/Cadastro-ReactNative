@@ -8,9 +8,8 @@ import {
 import Styles from './styles';
 import {Navegar} from './functions';
 import {useNavigation} from '@react-navigation/native';
-
 import React, {useState} from 'react';
-
+import Icon from 'react-native-vector-icons/AntDesign';
 export default function AppCadastro() {
   const navigation = useNavigation();
 
@@ -27,7 +26,15 @@ export default function AppCadastro() {
   return (
     <View style={Styles.container}>
       <View>
-        <Text style={Styles.titulo}>Dev12BR</Text>
+        <Text style={Styles.titulo}>
+          Dev12<Text style={Styles.br}>BR</Text>
+        </Text>
+        <Icon
+          name="iconfontdesktop"
+          size={30}
+          color="#edb211"
+          style={Styles.icon}
+        />
       </View>
 
       <View style={Styles.card}>

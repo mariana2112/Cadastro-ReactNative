@@ -1,6 +1,7 @@
 import {View, FlatList, Text, Image, TouchableOpacity} from 'react-native';
 import Styles from './styles';
 import {useRoute} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/AntDesign';
 import React, {useState} from 'react';
 const DATA = [
   {
@@ -86,6 +87,7 @@ export default function Lista() {
 
       <TouchableOpacity style={Styles.botao} onPress={() => RemoveElement()}>
         <Text style={Styles.texto}>Deletar</Text>
+        <Icon name="delete" size={20} color="white" style={Styles.icon} />
       </TouchableOpacity>
     </View>
   );

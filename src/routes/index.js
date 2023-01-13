@@ -12,7 +12,7 @@ export default function StackNavigation() {
         component={AppCadastro}
         options={{
           headerStyle: {
-            backgroundColor: '#2E8B57',
+            backgroundColor: '#9c3b3b',
           },
           headerTintColor: '#fff',
         }}
@@ -22,7 +22,7 @@ export default function StackNavigation() {
         component={Lista}
         options={{
           headerStyle: {
-            backgroundColor: '#2E8B57',
+            backgroundColor: '#9c3b3b',
           },
           headerTintColor: '#fff',
         }}
