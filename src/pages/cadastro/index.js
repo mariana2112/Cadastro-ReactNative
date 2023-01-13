@@ -8,6 +8,7 @@ import {
 import Styles from './styles';
 import {Navegar} from './functions';
 import {useNavigation} from '@react-navigation/native';
+
 import React, {useState} from 'react';
 
 export default function AppCadastro() {

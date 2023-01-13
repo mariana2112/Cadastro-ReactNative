@@ -1,7 +1,7 @@
 import {View, FlatList, Text, Image, TouchableOpacity} from 'react-native';
 import Styles from './styles';
 import {useRoute} from '@react-navigation/native';
-import React from 'react';
+import React, {useState} from 'react';
 const DATA = [
   {
     id: '1',
@@ -41,12 +41,12 @@ const DATA = [
 
 export default function Lista() {
   const route = useRoute();
+  const [list, setList] = useState(DATA);
 
   DATA.push({
     id: Math.random(0, 100),
     imagem:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU',
-    title: 'João Pedro',
     title: route.params.title,
     idade: route.params.idade,
     cpf: route.params.cpf,
@@ -66,16 +66,25 @@ export default function Lista() {
   const renderItem = ({item}) => <Item data={item} />;
   console.log(route.params);
 
+  function RemoveElement() {
+    console.log('remover');
+
+    let aux = JSON.parse(JSON.stringify(list));
+
+    aux.pop();
+    setList(aux);
+  }
+
   return (
     <View style={Styles.container}>
       <FlatList
         style={Styles.container}
-        data={DATA}
+        data={list}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
 
-      <TouchableOpacity style={Styles.botao}>
+      <TouchableOpacity style={Styles.botao} onPress={() => RemoveElement()}>
         <Text style={Styles.texto}>Deletar</Text>
       </TouchableOpacity>
     </View>
