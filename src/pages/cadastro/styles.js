@@ -10,6 +10,7 @@ const Styles = StyleSheet.create({
     color: 'white',
     fontSize: 35,
     fontFamily: 'serif',
+    color: '#fff',
   },
   textcard: {
     color: 'black',
@@ -56,6 +57,7 @@ const Styles = StyleSheet.create({
   },
   icon: {
     alignSelf: 'center',
+    marginTop: 10,
   },
   br: {
     color: '#edb211',
